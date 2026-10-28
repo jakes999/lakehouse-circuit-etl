@@ -96,6 +96,30 @@ databricks bundle run lakehouse_circuit_etl -t dev
 
 Both targets deploy with the schedule paused for safety. The configured schedule is 06:00 Monday–Friday in `Europe/London`. After reviewing a production deployment, change its `schedule_status` to `UNPAUSED` deliberately.
 
+## 4. Demonstrate incremental processing
+
+After the initial successful run, upload:
+
+- `data/incremental/customers_2026-10-28.csv` to `landing/customers/`
+- `data/incremental/orders_2026-10-28.csv` to `landing/orders/`
+
+Do not reset the checkpoints. Run the bundle-managed job again. Auto Loader should append exactly four new Bronze customer rows and five new Bronze order rows. Silver then applies latest-record deduplication and quality rules across the complete Bronze history.
+
+Expected final results:
+
+| Table/metric | Expected |
+|---|---:|
+| Bronze customers | 20 |
+| Bronze orders | 21 |
+| Silver customers | 11 |
+| Quarantine customers | 6 |
+| Silver orders | 12 |
+| Quarantine orders | 7 |
+| Gold revenue orders | 11 |
+| Gold revenue | 1530.18 |
+
+Run `sql/01_incremental_validation.sql` for the complete verification sequence.
+
 ## Local tests
 
 ```powershell

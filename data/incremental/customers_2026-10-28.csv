@@ -1,0 +1,6 @@
+customer_id,full_name,email,country_code,signup_date
+C003,Sofia Garcia,sofia.garcia.updated@example.test,ES,2025-03-12
+C011,Grace Lee,grace.lee@example.test,GB,2026-10-28
+C001,Amina Patel,amina.patel@example.test,GB,2025-01-15
+C016,Invalid Incremental,invalid-email,United Kingdom,2026-10-28
+
