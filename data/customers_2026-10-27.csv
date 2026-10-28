@@ -1,0 +1,18 @@
+customer_id,full_name,email,country_code,signup_date
+C001,Amina Patel,amina.patel@example.test,GB,2025-01-15
+C002,Noah Williams,noah.williams@example.test,GB,2025-02-20
+C003,Sofia Garcia,sofia.garcia@example.test,ES,2025-03-12
+C004,Oliver Smith,oliver.smith@example.test,GB,2025-04-09
+C005,Emma Johnson,emma.johnson@example.test,US,2025-04-30
+C006,Liam Brown,liam.brown@example.test,IE,2025-05-18
+C007,Mia Wilson,mia.wilson@example.test,CA,2025-06-21
+C008,Ethan Taylor,ethan.taylor@example.test,AU,2025-07-11
+C009,Isla Thomas,isla.thomas@example.test,GB,2025-08-03
+C010,Lucas Martin,lucas.martin@example.test,FR,2025-09-14
+C010,Lucas Martin,lucas.martin@example.test,FR,2025-09-14
+,Missing Identifier,missing.id@example.test,GB,2025-10-01
+C012,Bad Email,not-an-email,GB,2025-10-02
+C013,Bad Country,bad.country@example.test,United Kingdom,2025-10-03
+C014,,missing.name@example.test,GB,2025-10-04
+C015,Bad Date,bad.date@example.test,GB,not-a-date
+

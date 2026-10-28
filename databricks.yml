@@ -1,0 +1,33 @@
+bundle:
+  name: lakehouse-circuit-etl
+
+include:
+  - resources/*.yml
+
+variables:
+  catalog:
+    description: Unity Catalog catalog used by the pipeline
+    default: adb_lakehouse_circuit_dev
+  schedule_status:
+    description: Workflow schedule state
+    default: PAUSED
+
+targets:
+  dev:
+    mode: development
+    default: true
+    workspace:
+      root_path: ~/.bundle/${bundle.name}/${bundle.target}
+    variables:
+      schedule_status: PAUSED
+  prod:
+    mode: production
+    workspace:
+      root_path: /Shared/.bundle/${bundle.name}/${bundle.target}
+    run_as:
+      user_name: ${workspace.current_user.userName}
+    variables:
+      # Keep production paused until the deployment has been reviewed. Change
+      # this to UNPAUSED only when you deliberately enable the schedule.
+      schedule_status: PAUSED
+
